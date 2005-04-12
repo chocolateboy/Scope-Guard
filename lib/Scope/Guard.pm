@@ -61,10 +61,10 @@ The handler can be re-enabled by calling:
 
 	$sg->dismiss(0);
 
-==head1 SEE ALSO
+=head1 SEE ALSO
 
-	L<Hook::LexWrap>
-	L<Hook::Scope>
+L<Hook::LexWrap>
+L<Hook::Scope>
 
 =head1 AUTHOR
 
@@ -84,7 +84,7 @@ use warnings;
 
 use vars qw($VERSION);
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 sub new {
 	my $class = shift;
