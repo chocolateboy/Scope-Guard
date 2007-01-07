@@ -1,15 +1,49 @@
 # Before `make install' is performed this script should be runnable with
 # `make test'. After `make install' it should work as `perl Scope-Guard.t'
 
-#########################
+use blib;
+use strict;
+use warnings;
 
-# change 'tests => 1' to 'tests => last_test_to_print';
+use Test::More tests => 8;
 
-use Test::More tests => 1;
 BEGIN { use_ok('Scope::Guard') };
 
-#########################
+my $i = 1;
 
-# Insert your test code below, the Test::More module is use()ed here so read
-# its man page ( perldoc Test::More ) for help writing this test script.
+{
+    my $sg = Scope::Guard->new(sub { ok($i++ == 1, 'handler invoked at scope end') });
+}
 
+sub {
+    my $sg = Scope::Guard->new(sub { ok($i++ == 2, 'handler invoked on return') });
+    return;
+}->();
+
+eval {
+    my $sg = Scope::Guard->new(sub { ok($i++ == 3, 'handler invoked on exception') });
+    my $j = 0;
+    my $k = $j / $j;
+};
+
+like($@, qr{^Illegal division by zero}, 'exception was raised');
+
+{
+    my $sg = Scope::Guard->new(sub { ++$i });
+    $sg->dismiss();
+}
+
+ok($i++ == 4, 'dismiss() disables handler');
+
+{
+    my $sg = Scope::Guard->new(sub { ++$i });
+    $sg->dismiss(1);
+}
+
+ok($i++ == 5, 'dismiss(1) disables handler');
+
+{
+    my $sg = Scope::Guard->new(sub { ok($i++ == 6, 'dismiss(0) enables handler') });
+    $sg->dismiss();
+    $sg->dismiss(0);
+}

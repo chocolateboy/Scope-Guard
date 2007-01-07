@@ -1,5 +1,41 @@
 package Scope::Guard;
 
+use strict;
+use warnings;
+
+use vars qw($VERSION);
+
+$VERSION = '0.03';
+
+sub new {
+    my $class = shift;
+    my $handler = shift() || die "Scope::Guard::new: no handler supplied";
+    my $ref = ref $handler || '';
+
+    die "Scope::Guard::new: invalid handler - expected CODE ref, got: '$ref'"
+	unless (UNIVERSAL::isa($handler, 'CODE'));
+
+    bless [ 0, $handler ], ref $class || $class;
+}
+
+sub dismiss {
+    my $self = shift;
+    my $dismiss = @_ ? shift : 1;
+
+    $self->[0] = $dismiss;
+}
+
+sub DESTROY {
+    my $self = shift;
+    my ($dismiss, $handler) = @$self;
+
+    $handler->() unless ($dismiss);
+}
+
+1;
+
+__END__
+
 =pod
 
 =head1 NAME
@@ -61,10 +97,23 @@ The handler can be re-enabled by calling:
 
 	$sg->dismiss(0);
 
+=head1 VERSION
+
+0.03
+
 =head1 SEE ALSO
 
-L<Hook::LexWrap>
-L<Hook::Scope>
+=over
+
+=item * L<Hook::LexWrap|Hook::LexWrap>
+
+=item * L<Hook::Scope|Hook::Scope>
+
+=item * L<Sub::ScopeFinalizer|Sub::ScopeFinalizer>
+
+=item * L<Object::Destroyer|Object::Destroyer>
+
+=back
 
 =head1 AUTHOR
 
@@ -72,44 +121,9 @@ chocolateboy: <chocolate.boy@email.com>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2005, chocolateboy.
+Copyright (c) 2005-2007, chocolateboy.
 
 This module is free software. It may be used, redistributed and/or modified under the same terms
 as Perl itself.
 
 =cut
-
-use strict;
-use warnings;
-
-use vars qw($VERSION);
-
-$VERSION = '0.02';
-
-sub new {
-	my $class = shift;
-	my $handler = shift() || die "Scope::Guard::new: no handler supplied";
-	my $ref = ref $handler || '';
-
-	die "Scope::Guard::new: invalid handler - expected CODE ref, got: '$ref'"
-		unless (UNIVERSAL::isa($handler, 'CODE'));
-
-	my $self = [ 0, $handler ];
-	bless $self, ref $class || $class;
-}
-
-sub dismiss {
-	my $self = shift;
-	my $dismiss = @_ ? shift : 1;
-
-	$self->[0] = $dismiss;
-}
-
-sub DESTROY {
-	my $self = shift;
-	my ($dismiss, $handler) = @$self;
-
-	$handler->() unless ($dismiss);
-}
-
-1;
