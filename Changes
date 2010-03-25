@@ -1,5 +1,11 @@
 Revision history for Perl extension Scope::Guard.
 
+0.11 Thu Mar 25 22:08:05 2010
+    - doc tweak
+
+0.10 Thu Mar 25 20:14:25 2010
+    - add guard() and scope_guard() - thanks Tim Bunce
+
 0.03 Sun Jan  7 19:19:17 2007
     - POD fix (thanks Craig Manley)
     - added test suite

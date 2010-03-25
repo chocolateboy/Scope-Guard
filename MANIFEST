@@ -1,9 +1,11 @@
 Changes
-MANIFEST
-META.yml
-Makefile.PL
-README
 lib/Scope/Guard.pm
-t/Scope-Guard.t
+Makefile.PL
+MANIFEST			This list of files
+META.yml
+README
+t/guard.t
+t/new.t
 t/pod.t
 t/pod_coverage.t
+t/scope_guard.t
