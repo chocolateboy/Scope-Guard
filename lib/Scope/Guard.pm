@@ -7,7 +7,7 @@ use Exporter ();
 
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(guard scope_guard);
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 sub new {
     my $class = shift;
@@ -45,7 +45,7 @@ __END__
 
 =head1 NAME
 
-Scope::Guard - lexically scoped resource management
+Scope::Guard - lexically-scoped resource management
 
 =head1 SYNOPSIS
 
@@ -83,7 +83,7 @@ For more information, see: L<http://www.drdobbs.com/cpp/184403758>
     my $guard = Scope::Guard->new(\&handler);
 
 The C<new> method creates a new C<Scope::Guard> object which calls the supplied handler when its C<DESTROY> method is
-called, typically when it goes out of scope.
+called, typically at the end of the scope.
 
 =head2 dismiss
 
@@ -122,14 +122,14 @@ the block knows how to deal with situations in which the resource has already be
 managed e.g.
 
     guard {
-	unless ($resource->disposed) {
-            $resource->dispose;
+	if ($resource->locked) {
+            $resource->unlock;
 	}
     };
 
 =head2 scope_guard
 
-C<scope_guard> is the same as C<guard>, but it takes a scalar (e.g. a code ref) rather than a block.
+C<scope_guard> is the same as C<guard>, but it takes a code ref rather than a block.
 e.g.
 
     my $guard = scope_guard \&handler;
@@ -146,7 +146,7 @@ Like C<guard>, it can be called in void context to install an anonymous guard in
 
 =head1 VERSION
 
-0.11
+0.12
 
 =head1 SEE ALSO
 
@@ -169,6 +169,8 @@ Like C<guard>, it can be called in void context to install an anonymous guard in
 =item * L<Scope::OnExit|Scope::OnExit>
 
 =item * L<Sub::ScopeFinalizer|Sub::ScopeFinalizer>
+
+=item * L<Value::Canary|Value::Canary>
 
 =back
 
