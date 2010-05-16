@@ -3,19 +3,22 @@ package Scope::Guard;
 use strict;
 use warnings;
 
+use Carp qw(confess);
 use Exporter ();
 
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(guard scope_guard);
-our $VERSION = '0.12';
+our $VERSION = '0.20';
 
 sub new {
+    confess "Can't create a Scope::Guard in void context" unless (defined wantarray);
+
     my $class = shift;
     my $handler = shift() || die 'Scope::Guard::new: no handler supplied';
     my $ref = ref $handler || '';
 
     die "Scope::Guard::new: invalid handler - expected CODE ref, got: '$ref'"
-	unless (UNIVERSAL::isa($handler, 'CODE'));
+        unless (UNIVERSAL::isa($handler, 'CODE'));
 
     bless [ 0, $handler ], ref $class || $class;
 }
@@ -57,7 +60,7 @@ Scope::Guard - lexically-scoped resource management
 
       # or
 
-    my $guard = Scope::Guard->new(\&handler);
+    my $guard = Scope::Guard->new(sub { ... });
 
     $guard->dismiss(); # disable the handler
 
@@ -113,19 +116,9 @@ e.g.
 
     my $guard = guard { ... };
     
-- or it can be called in void context to create a guard for the current scope e.g.
-
-    guard { ... };
-
-Because there is no way to dismiss the guard in the latter case, it is assumed that
-the block knows how to deal with situations in which the resource has already been
-managed e.g.
-
-    guard {
-	if ($resource->locked) {
-            $resource->unlock;
-	}
-    };
+Note: calling C<guard> anonymously, i.e. in void context, will raise an exception.
+This is because anonymous guards are destroyed B<immediately>
+(rather than at the end of the scope), which is unlikely to be the desired behaviour.
 
 =head2 scope_guard
 
@@ -142,11 +135,11 @@ or:
 
     my $guard = scope_guard $handler;
 
-Like C<guard>, it can be called in void context to install an anonymous guard in the current scope.
+As with C<guard>, calling C<scope_guard> in void context will raise an exception.
 
 =head1 VERSION
 
-0.12
+0.20
 
 =head1 SEE ALSO
 
@@ -165,6 +158,8 @@ Like C<guard>, it can be called in void context to install an anonymous guard in
 =item * L<Perl::AtEndOfScope|Perl::AtEndOfScope>
 
 =item * L<ReleaseAction|ReleaseAction>
+
+=item * L<Scope::local_OnExit|Scope::local_OnExit>
 
 =item * L<Scope::OnExit|Scope::OnExit>
 

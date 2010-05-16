@@ -1,5 +1,9 @@
 Revision history for Perl extension Scope::Guard.
 
+0.20 Sun May 16 08:50:59 2010
+    - raise exception if guards are created anonymously (void context)
+      (thanks Tim Bunce and Graham Knop)
+
 0.12 Fri Mar 26 19:12:11 2010
     - fix link in README (thanks Franck Joncourt)
 
@@ -7,7 +11,7 @@ Revision history for Perl extension Scope::Guard.
     - doc tweak
 
 0.10 Thu Mar 25 20:14:25 2010
-    - add guard() and scope_guard() - thanks Tim Bunce
+    - add guard() and scope_guard() (thanks Tim Bunce)
 
 0.03 Sun Jan  7 19:19:17 2007
     - POD fix (thanks Craig Manley)
