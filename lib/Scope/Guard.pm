@@ -8,7 +8,7 @@ use Exporter ();
 
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(guard scope_guard);
-our $VERSION = '0.20';
+our $VERSION = '0.21';
 
 sub new {
     confess "Can't create a Scope::Guard in void context" unless (defined wantarray);
@@ -115,7 +115,7 @@ as a shorthand for:
 e.g.
 
     my $guard = guard { ... };
-    
+
 Note: calling C<guard> anonymously, i.e. in void context, will raise an exception.
 This is because anonymous guards are destroyed B<immediately>
 (rather than at the end of the scope), which is unlikely to be the desired behaviour.
@@ -139,7 +139,7 @@ As with C<guard>, calling C<scope_guard> in void context will raise an exception
 
 =head1 VERSION
 
-0.20
+0.21
 
 =head1 SEE ALSO
 
@@ -175,7 +175,7 @@ chocolateboy <chocolate@cpan.org>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2005-2010, chocolateboy.
+Copyright (c) 2005-2015, chocolateboy.
 
 This module is free software. It may be used, redistributed and/or modified under the same terms
 as Perl itself.

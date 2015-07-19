@@ -1,5 +1,9 @@
 Revision history for Perl extension Scope::Guard.
 
+0.21 Sun 19 Jul 22:14:54 2015
+    - remove useless use of UNIVERSAL::isa (#RT105948)
+      (Karen Etheridge)
+
 0.20 Sun May 16 08:50:59 2010
     - raise exception if guards are created anonymously (void context)
       (thanks Tim Bunce and Graham Knop)
