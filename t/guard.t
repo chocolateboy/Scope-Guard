@@ -50,7 +50,7 @@ eval {
     my $denominator = 0;
     my $exception = $numerator / $denominator;
 
-    $test_6 = 'modified test 3'; # not reached
+    $test_6 = 'modified test 6'; # not reached
 };
 
 like $@, qr{^Illegal division by zero};
