@@ -1,25 +1,26 @@
-Scope-Guard version 0.21
-========================
+# Scope-Guard version 0.21
 
 This module provides a convenient way to perform cleanup or other forms of resource
 management at the end of a scope. It is particularly useful when dealing with exceptions:
-the Scope::Guard constructor takes a reference to a subroutine that is guaranteed to
+the `Scope::Guard` constructor takes a reference to a subroutine that is guaranteed to
 be called even if the thread of execution is aborted prematurely. This effectively allows
 lexically-scoped "promises" to be made that are automatically honoured by perl's garbage
 collector.
 
 For more information, see: http://www.drdobbs.com/cpp/184403758
 
-INSTALLATION
+### INSTALLATION
 
 To install this module, type the following:
 
-   perl Makefile.PL
-   make
-   make test
-   make install
+```
+perl Makefile.PL
+make
+make test
+make install
+```
 
-COPYRIGHT AND LICENCE
+### COPYRIGHT AND LICENCE
 
 Copyright (c) 2005-2015 by chocolateboy <chocolate@cpan.org>
 
