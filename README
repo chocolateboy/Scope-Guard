@@ -21,8 +21,7 @@ To install this module, type the following:
 
 COPYRIGHT AND LICENCE
 
-Copyright (c) 2005-2015 by chocolateboy <chocolate@cpan.org>
+Copyright (c) 2005-2018 by chocolateboy <chocolate@cpan.org>
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.8.6 or,
-at your option, any later version of Perl 5 you may have available.
+This module is free software; you can redistribute it and/or modify it under the
+terms of the Artistic License 2.0.

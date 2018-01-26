@@ -173,11 +173,11 @@ As with C<guard>, calling C<scope_guard> in void context will raise an exception
 
 chocolateboy <chocolate@cpan.org>
 
-=head1 COPYRIGHT
+=head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2005-2015, chocolateboy.
+Copyright (c) 2005-2018, chocolateboy.
 
-This module is free software. It may be used, redistributed and/or modified under the same terms
-as Perl itself.
+This module is free software; you can redistribute it and/or modify it under the
+terms of the Artistic License 2.0.
 
 =cut

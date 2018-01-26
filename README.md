@@ -19,7 +19,7 @@ lexically-scoped resource management
 - [VERSION](#version)
 - [SEE ALSO](#see-also)
 - [AUTHOR](#author)
-- [COPYRIGHT](#copyright)
+- [COPYRIGHT](#copyright-and-license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -150,7 +150,7 @@ As with `guard`, calling `scope_guard` in void context will raise an exception.
 
 [chocolateboy](mailto:chocolate@cpan.org)
 
-## COPYRIGHT
+## COPYRIGHT AND LICENSE
 
 Copyright (c) 2005-2018, chocolateboy.
 
