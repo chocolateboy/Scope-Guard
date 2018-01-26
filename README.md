@@ -154,5 +154,5 @@ As with `guard`, calling `scope_guard` in void context will raise an exception.
 
 Copyright (c) 2005-2018, chocolateboy.
 
-This module is free software. It may be used, redistributed and/or modified under the same terms
-as Perl itself.
+This module is free software; you can redistribute it and/or modify it under the
+terms of the [Artistic License 2.0](http://www.opensource.org/licenses/artistic-license-2.0.php).
