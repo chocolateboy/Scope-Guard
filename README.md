@@ -19,7 +19,7 @@ lexically-scoped resource management
 - [VERSION](#version)
 - [SEE ALSO](#see-also)
 - [AUTHOR](#author)
-- [COPYRIGHT](#copyright-and-license)
+- [COPYRIGHT AND LICENSE](#copyright-and-license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
