@@ -3,7 +3,7 @@
 [![CPAN version](https://badge.fury.io/pl/Scope-Guard.svg)](http://badge.fury.io/pl/Scope-Guard)
 [![build status](https://secure.travis-ci.org/chocolateboy/Scope-Guard.svg)](http://travis-ci.org/chocolateboy/Scope-Guard)
 
-Scope::Guard - lexically-scoped resource management
+lexically-scoped resource management
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
