@@ -175,9 +175,9 @@ chocolateboy <chocolate@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2005-2018, chocolateboy.
+Copyright (c) 2005-2018 by chocolateboy.
 
-This module is free software; you can redistribute it and/or modify it under the
+This is free software; you can redistribute it and/or modify it under the
 terms of the Artistic License 2.0.
 
 =cut
