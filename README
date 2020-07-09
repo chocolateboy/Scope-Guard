@@ -8,7 +8,7 @@ be called even if the thread of execution is aborted prematurely. This effective
 lexically-scoped "promises" to be made that are automatically honoured by perl's garbage
 collector.
 
-For more information, see: http://www.drdobbs.com/cpp/184403758
+For more information, see: https://www.drdobbs.com/cpp/184403758
 
 INSTALLATION
 
@@ -21,7 +21,7 @@ To install this module, type the following:
 
 COPYRIGHT AND LICENCE
 
-Copyright (c) 2005-2018 by chocolateboy.
+Copyright (c) 2005-2020 by chocolateboy.
 
 This is free software; you can redistribute it and/or modify it under the
 terms of the Artistic License 2.0.

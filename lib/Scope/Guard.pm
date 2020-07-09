@@ -73,7 +73,7 @@ be called even if the thread of execution is aborted prematurely. This effective
 lexically-scoped "promises" to be made that are automatically honoured by perl's garbage
 collector.
 
-For more information, see: L<http://www.drdobbs.com/cpp/184403758>
+For more information, see: L<https://www.drdobbs.com/cpp/184403758>
 
 =head1 METHODS
 
@@ -175,9 +175,9 @@ chocolateboy <chocolate@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2005-2018 by chocolateboy.
+Copyright (c) 2005-2020 by chocolateboy.
 
 This library is free software; you can redistribute it and/or modify it under the
-terms of the L<Artistic License 2.0|http://www.opensource.org/licenses/artistic-license-2.0.php>.
+terms of the L<Artistic License 2.0|https://www.opensource.org/licenses/artistic-license-2.0.php>.
 
 =cut
