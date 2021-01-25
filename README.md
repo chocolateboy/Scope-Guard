@@ -1,6 +1,6 @@
 # Scope::Guard
 
-[![Build Status](https://travis-ci.org/chocolateboy/Scope-Guard.svg)](https://travis-ci.org/chocolateboy/Scope-Guard)
+[![Build Status](https://github.com/chocolateboy/Scope-Guard/workflows/test/badge.svg)](https://github.com/chocolateboy/Scope-Guard/actions?query=workflow%3Atest)
 [![CPAN Version](https://badge.fury.io/pl/Scope-Guard.svg)](https://badge.fury.io/pl/Scope-Guard)
 
 <!-- toc -->
