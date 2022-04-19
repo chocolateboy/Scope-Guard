@@ -18,7 +18,7 @@ sub new {
     my $ref = ref $handler || '';
 
     die "Scope::Guard::new: invalid handler - expected CODE ref, got: '$ref'"
-        unless ref($handler) eq 'CODE';
+        unless $ref eq 'CODE';
 
     bless [ 0, $handler ], ref $class || $class;
 }
